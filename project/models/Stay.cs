@@ -47,4 +47,9 @@ namespace project.models
         this.price = price;
         this.status = status;
     }
+
+    public override string ToString()
+    {
+        return $"Stay: {id}, {type}, {adress}, {price}, {status}";
+    }
 }
