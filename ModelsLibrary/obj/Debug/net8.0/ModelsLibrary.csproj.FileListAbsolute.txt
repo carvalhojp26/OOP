@@ -1,0 +1,11 @@
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ModelsLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ModelsLibrary.AssemblyInfoInputs.cache
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ModelsLibrary.AssemblyInfo.cs
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ModelsLibrary.csproj.CoreCompileInputs.cache
+/home/vac/jpfaculdade/OOP/ModelsLibrary/bin/Debug/net8.0/ModelsLibrary.deps.json
+/home/vac/jpfaculdade/OOP/ModelsLibrary/bin/Debug/net8.0/ModelsLibrary.dll
+/home/vac/jpfaculdade/OOP/ModelsLibrary/bin/Debug/net8.0/ModelsLibrary.pdb
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ModelsLibrary.dll
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/refint/ModelsLibrary.dll
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ModelsLibrary.pdb
+/home/vac/jpfaculdade/OOP/ModelsLibrary/obj/Debug/net8.0/ref/ModelsLibrary.dll
