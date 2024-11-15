@@ -3,7 +3,7 @@ using ModelsLibrary;
 
 namespace project.Controllers
 {
-    public class AdminController
+    public class AdminController : IController<Admin>
     {
         private readonly ManagementSystem _managementSystem;
 
@@ -12,17 +12,17 @@ namespace project.Controllers
             _managementSystem = managementSystem;
         }
 
-        public int AddAdmin(Admin admin)
+        public int Add(Admin admin)
         {
             return _managementSystem.AddPerson(admin);
         }
 
-        public int RemoveAdmin(int id)
+        public int Remove(int id)
         {
             return _managementSystem.RemovePerson(id);
         }
 
-        public void ShowAllAdmins()
+        public void DisplayAll()
         {
             var admins = _managementSystem.GetPeople().OfType<Admin>();
             foreach (var admin in admins)

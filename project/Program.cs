@@ -11,13 +11,14 @@ class Program
         var clientController = new ClientController(management);
         var adminController = new AdminController(management);
 
-        clientController.AddClient(new Client(1, "John Doe", "john@example.com", "123456789"));
-        adminController.AddAdmin(new Admin(2, "Jane Admin", "jane@example.com", "987654321"));
+        clientController.Add(new Client(1, "John Doe", "john@example.com", "123456789"));
+        adminController.Add(new Admin(2, "Jane Admin", "jane@example.com", "987654321"));
 
-        clientController.ShowAllClients();
-        adminController.ShowAllAdmins();
+        clientController.DisplayAll();
+        adminController.DisplayAll();
 
-        clientController.RemoveClient(1);
-        clientController.ShowAllClients();
+        clientController.Remove(1);
+        clientController.DisplayAll();
+        adminController.DisplayAll();
     }
 }

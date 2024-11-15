@@ -3,7 +3,7 @@ using ModelsLibrary;
 
 namespace project.Controllers
 {
-    public class ClientController
+    public class ClientController : IController<Client>
     {
         private readonly ManagementSystem _managementSystem;
 
@@ -12,17 +12,17 @@ namespace project.Controllers
             _managementSystem = managementSystem;
         }
 
-        public int AddClient(Client client)
+        public int Add(Client client)
         {
             return _managementSystem.AddPerson(client);
         }   
 
-        public int RemoveClient(int id)
+        public int Remove(int id)
         {
             return _managementSystem.RemovePerson(id);
         }
 
-        public void ShowAllClients()
+        public void DisplayAll()
         {
             var clients = _managementSystem.GetPeople().OfType<Client>();
             foreach (var client in clients)

@@ -1,6 +1,6 @@
 namespace ModelsLibrary
 {
-    public abstract class Person
+    public abstract class Person : IPerson
     {
         private int id;
         private string name;
