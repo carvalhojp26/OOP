@@ -7,7 +7,15 @@ namespace project.models
         public string PhoneNumber
         {
             get => phoneNumber;
-            set => phoneNumber = value;
+            set
+            {
+                if (value.Length < 9)
+                {
+                    return 0;
+                }
+
+                phoneNumber = value;
+            }
         }
 
         public Client(int id, string name, string email, string phoneNumber) : base(id, name, email)

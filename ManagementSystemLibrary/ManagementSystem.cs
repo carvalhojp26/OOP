@@ -24,11 +24,6 @@ namespace ManagementSystemLibrary
 
         public int RemoveClient(int id)
         {
-            if (id <= 0)
-            {
-                return 0;
-            }
-
             var clientToRemove = clients.Find(client => client.Id == id);
 
             if (clientToRemove == null)
@@ -47,11 +42,6 @@ namespace ManagementSystemLibrary
 
         public Client GetClientById(int id)
         {
-            if (id <= 0)
-            {
-                return null;
-            }
-
             return clients.Find(client => client.Id == id);
         }
 
@@ -68,11 +58,6 @@ namespace ManagementSystemLibrary
 
         public int RemoveAdmin(int id)
         {
-            if (id <= 0)
-            {
-                return 0;
-            }
-
             if (admins.Count == 1)
             {
                 return 0;
@@ -96,11 +81,6 @@ namespace ManagementSystemLibrary
 
         public Admin GetAdminById(int id)
         {
-            if (id <= 0)
-            {
-                return null;
-            }
-
             return admins.Find(admin => admin.Id == id);
         }
 
@@ -117,11 +97,6 @@ namespace ManagementSystemLibrary
 
         public int RemoveStay(int id)
         {
-            if (id <= 0)
-            {
-                return 0;
-            }
-
             var stayToRemove = stays.Find(stay => stay.Id == id);
 
             if (stayToRemove == null)
@@ -140,11 +115,6 @@ namespace ManagementSystemLibrary
 
         public Stay GetStayById(int id)
         {
-            if (id <= 0)
-            {
-                return null;
-            }
-
             return stays.Find(stay => stay.Id == id);
         }
 
@@ -161,11 +131,6 @@ namespace ManagementSystemLibrary
 
         public int RemoveBooking(int id)
         {
-            if (id <= 0)
-            {
-                return 0;
-            }
-
             var bookingToRemove = bookings.Find(booking => booking.Id == id);
 
             if (bookingToRemove == null)

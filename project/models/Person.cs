@@ -9,19 +9,43 @@ namespace project.models
         public int Id
         {
             get => id;
-            set => id = value;
+            set
+            {
+                if (value <= 0)
+                {
+                    return 0;
+                }
+
+                id = value;
+            }
         }
 
         public string Name
         {
             get => name;
-            set => name = value;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    return 0;
+                }
+
+                name = value;
+            }
         }
 
         public string Email
         {
             get => email;
-            set => email = value;
+            set
+            {
+                if (!value.Contains("@"))
+                {
+                    return 0;
+                }
+
+                email = value;
+            }
         }
 
         public Person(int id, string name, string email)
