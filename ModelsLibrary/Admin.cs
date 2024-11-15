@@ -14,5 +14,10 @@ namespace ModelsLibrary
         {
             this.password = password;
         }
+
+        public override void DisplayRole()
+        {
+            Console.WriteLine("Role: Admin");
+        }
     }
 }

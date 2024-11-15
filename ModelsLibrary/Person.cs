@@ -1,6 +1,6 @@
 namespace ModelsLibrary
 {
-    public class Person
+    public abstract class Person
     {
         private int id;
         private string name;
@@ -50,6 +50,9 @@ namespace ModelsLibrary
             this.name = name;
             this.email = email;
         }
+
+        // abstract method
+        public abstract void DisplayRole();
 
         public override string ToString()
         {

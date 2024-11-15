@@ -7,7 +7,7 @@ namespace ModelsLibrary
         private string adress;
         private int capacity; // Number of guests
         private int price; // Price per night
-        private bool status; // Available, Unavailable
+        private bool status; // Available (true), Unavailable (false)
         
         public int Id
         {

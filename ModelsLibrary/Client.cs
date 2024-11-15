@@ -21,5 +21,10 @@ namespace ModelsLibrary
         {
             this.phoneNumber = phoneNumber;
         }
+
+        public override void DisplayRole()
+        {
+            Console.WriteLine("Role: Client");
+        }
     }
 }

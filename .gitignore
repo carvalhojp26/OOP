@@ -1,0 +1,25 @@
+# Diretórios de build
+bin/
+obj/
+
+# Arquivos gerados
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Configurações do Visual Studio/Code
+.vscode/
+.vs/
+*.user
+*.suo
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Outras dependências e artefatos
+*.nuget/
+*.deps.json
+*.runtimeconfig.json
