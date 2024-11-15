@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "ManagementSystemLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ModelsLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ManagementSystemLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ManagementSystemLibrary.dll": {}
+        }
+      },
+      "ModelsLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ModelsLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelsLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ManagementSystemLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ManagementSystemLibrary/ManagementSystemLibrary.csproj",
+      "msbuildProject": "../ManagementSystemLibrary/ManagementSystemLibrary.csproj"
+    },
+    "ModelsLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ModelsLibrary/ModelsLibrary.csproj",
+      "msbuildProject": "../ModelsLibrary/ModelsLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "ManagementSystemLibrary >= 1.0.0",
+      "ModelsLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/vac/.nuget/packages/": {}
@@ -31,7 +69,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj": {
+              "projectPath": "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj"
+            },
+            "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj": {
+              "projectPath": "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -59,7 +104,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,4 +1,4 @@
-using project.models;
+using ModelsLibrary;
 using System;
 using System.Collections.Generic;
 
@@ -6,88 +6,53 @@ namespace ManagementSystemLibrary
 {
     public class ManagementSystem
     {
-        private List<Client> clients = new List<Client>();
-        private List<Admin> admins = new List<Admin>();
+        private List<Person> people = new List<Person>();
         private List<Stay> stays = new List<Stay>();
         private List<Booking> bookings = new List<Booking>();
 
-        public int AddClient(Client client)
+        public int AddPerson(Person person)
         {
-            if (client == null || clients.Exists(c => c.id == client.Id))
+            if (person == null || people.Exists(p => p.Id == person.Id))
             {
                 return 0;
             }
 
-            clients.Add(client);
+            people.Add(person);
             return 1;
         }
 
-        public int RemoveClient(int id)
+        public int RemovePerson(int id)
         {
-            var clientToRemove = clients.Find(client => client.Id == id);
+            var personToRemove = people.Find(person => person.Id == id);
 
-            if (clientToRemove == null)
+            if (personToRemove == null)
             {
                 return 0;
             }
 
-            clients.Remove(clientToRemove);
+            people.Remove(personToRemove);
             return 1;
         }
 
-        public List<Client> GetClients()
+        public List<Person> GetPeople()
         {
-            return new List<Client>(clients); // return a copy of the list to avoid modifying the original list
+            return new List<Person>(people);
         }
 
-        public Client GetClientById(int id)
+        public Person GetPersonById(int id)
         {
-            return clients.Find(client => client.Id == id);
+            return people.Find(person => person.Id == id);
         }
 
-        public int AddAdmin(Admin admin)
+        public List<T> GetPeopleByType<T>() where T : Person
         {
-            if (admin == null || admins.Exists(a => a.Id == admin.Id))
-            {
-                return 0;
-            }
-
-            admins.Add(admin);
-            return 1;
-        }
-
-        public int RemoveAdmin(int id)
-        {
-            if (admins.Count == 1)
-            {
-                return 0;
-            }
-
-            var adminToRemove = admins.Find(admin => admin.Id == id);
-
-            if (adminToRemove == null)
-            {
-                return 0;
-            }
-
-            admins.Remove(adminToRemove);
-            return 1;
-        }
-
-        public List<Admin> GetAdmins()
-        {
-            return new List<Admin>(admins);
-        }
-
-        public Admin GetAdminById(int id)
-        {
-            return admins.Find(admin => admin.Id == id);
+            return new List<T>(people.OfType<T>());
         }
 
         public int AddStay(Stay stay)
         {
             if (stay == null || stays.Exists(s => s.Id == stay.Id))
-            {
+            {   
                 return 0;
             }
 
