@@ -2,11 +2,11 @@ namespace project.models
 {
     public class Booking
     {
-        private int id
-        private Client client
-        private Stay stay
-        private DateTime checkIn
-        private DateTime checkout
+        private int id;
+        private Client client;
+        private Stay stay;
+        private DateTime checkIn;
+        private DateTime checkout;
 
         public int Id
         {
@@ -45,6 +45,12 @@ namespace project.models
             this.stay = stay;
             this.checkIn = checkIn;
             this.checkOut = checkOut;
+        }
+
+        public int CalculateTotalPrice()
+        {
+            TimeSpan duration = checkOut - checkIn;
+            return duration.Days * stay.Price;
         }
     }
 }

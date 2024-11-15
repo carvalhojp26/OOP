@@ -2,10 +2,10 @@ namespace project.models
 {
     public class Client
     {
-        private int id
-        private string name
-        private string email
-        private string phone
+        private int id; // citezen card number
+        private string name;
+        private string email;
+        private string phone;
 
         public int Id
         {
