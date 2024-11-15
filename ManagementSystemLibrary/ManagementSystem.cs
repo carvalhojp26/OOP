@@ -7,6 +7,7 @@ namespace ManagementSystemLibrary
     public class ManagementSystem
     {
         private List<Client> clients = new List<Client>();
+        private List<Admin> admins = new List<Admin>();
         private List<Stay> stays = new List<Stay>();
         private List<Booking> bookings = new List<Booking>();
 
@@ -52,6 +53,55 @@ namespace ManagementSystemLibrary
             }
 
             return clients.Find(client => client.Id == id);
+        }
+
+        public int AddAdmin(Admin admin)
+        {
+            if (admin == null || admins.Exists(a => a.Id == admin.Id))
+            {
+                return 0;
+            }
+
+            admins.Add(admin);
+            return 1;
+        }
+
+        public int RemoveAdmin(int id)
+        {
+            if (id <= 0)
+            {
+                return 0;
+            }
+
+            if (admins.Count == 1)
+            {
+                return 0;
+            }
+
+            var adminToRemove = admins.Find(admin => admin.Id == id);
+
+            if (adminToRemove == null)
+            {
+                return 0;
+            }
+
+            admins.Remove(adminToRemove);
+            return 1;
+        }
+
+        public List<Admin> GetAdmins()
+        {
+            return new List<Admin>(admins);
+        }
+
+        public Admin GetAdminById(int id)
+        {
+            if (id <= 0)
+            {
+                return null;
+            }
+
+            return admins.Find(admin => admin.Id == id);
         }
 
         public int AddStay(Stay stay)

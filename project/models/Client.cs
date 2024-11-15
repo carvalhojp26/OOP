@@ -1,42 +1,18 @@
 namespace project.models
 {
-    public class Client
+    public class Client : Person
     {
-        private int id; // citezen card number
-        private string name;
-        private string email;
-        private string phone;
+        private string phoneNumber;
 
-        public int Id
+        public string PhoneNumber
         {
-            get => id;
-            set => id = value;
+            get => phoneNumber;
+            set => phoneNumber = value;
         }
 
-        public string Name
+        public Client(int id, string name, string email, string phoneNumber) : base(id, name, email)
         {
-            get => name;
-            set => name = value;
-        }
-
-        public string Email
-        {
-            get => email;
-            set => email = value;
-        }
-
-        public string Phone
-        {
-            get => phone;
-            set => phone = value;
-        }
-
-        public Client (int id, string name, string email, string phone)
-        {
-            this.id = id;
-            this.name = name;
-            this.email = email;
-            this.phone = phone;
+            this.phoneNumber = phoneNumber;
         }
     }
 }
