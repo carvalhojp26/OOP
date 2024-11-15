@@ -1,41 +1,23 @@
-﻿using ModelsLibrary;
+﻿using project.Controllers;
 using ManagementSystemLibrary;
-using System;   
+using ModelsLibrary;
 
-public class Program
+class Program
 {
-    // Just an example of how to use the ManagementSystem class
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
-        ManagementSystem system = new ManagementSystem();
+        var management = new ManagementSystem();
 
-        system.AddPerson(new Client(1, "John Doe", "john@example.com", "123456789"));
-        system.AddPerson(new Admin(2, "Alice Admin", "alice@admin.com", "Manager"));
-        system.AddPerson(new Client(3, "Jane Smith", "jane@example.com", "987654321"));
+        var clientController = new ClientController(management);
+        var adminController = new AdminController(management);
 
-        Console.WriteLine("All People:");
-        foreach (var person in system.GetPeople())
-        {
-            Console.WriteLine(person);
-        }
+        clientController.AddClient(new Client(1, "John Doe", "john@example.com", "123456789"));
+        adminController.AddAdmin(new Admin(2, "Jane Admin", "jane@example.com", "987654321"));
 
-        Console.WriteLine("\nClients:");
-        foreach (var client in system.GetPeopleByType<Client>())
-        {
-            Console.WriteLine(client);
-        }
+        clientController.ShowAllClients();
+        adminController.ShowAllAdmins();
 
-        Console.WriteLine("\nAdmins:");
-        foreach (var admin in system.GetPeopleByType<Admin>())
-        {
-            Console.WriteLine(admin);
-        }
-
-        system.RemovePerson(1);
-        Console.WriteLine("\nAfter Removing John Doe:");
-        foreach (var person in system.GetPeople())
-        {
-            Console.WriteLine(person);
-        }
+        clientController.RemoveClient(1);
+        clientController.ShowAllClients();
     }
 }
