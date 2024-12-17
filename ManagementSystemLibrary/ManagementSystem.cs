@@ -6,53 +6,53 @@ namespace ManagementSystemLibrary
 {
     public class ManagementSystem
     {
-        private List<Person> people = new List<Person>();
+        private List<User> users = new List<User>();
         private List<Stay> stays = new List<Stay>();
         private List<Booking> bookings = new List<Booking>();
 
-        public int AddPerson(Person person)
+        public int AddUser(User user)
         {
-            if (person == null || people.Exists(p => p.Id == person.Id))
+            if (user == null || users.Exists(u => u.Id == user.Id))
             {
                 return 0;
             }
 
-            people.Add(person);
+            users.Add(user);
             return 1;
         }
 
-        public int RemovePerson(int id)
+        public int RemoveUser(int id)
         {
-            var personToRemove = people.Find(person => person.Id == id);
+            var userToRemove = users.Find(user => user.Id == id);
 
-            if (personToRemove == null)
+            if (userToRemove == null)
             {
                 return 0;
             }
 
-            people.Remove(personToRemove);
+            users.Remove(userToRemove);
             return 1;
         }
 
-        public List<Person> GetPeople()
+        public List<User> GetUsers()
         {
-            return new List<Person>(people);
+            return new List<User>(users);
         }
 
-        public Person GetPersonById(int id)
+        public User GetUserById(int id)
         {
-            return people.Find(person => person.Id == id);
+            return users.Find(user => user.Id == id);
         }
 
-        public List<T> GetPeopleByType<T>() where T : Person
+        public List<T> GetUsersByType<T>() where T : User
         {
-            return new List<T>(people.OfType<T>());
+            return new List<T>(users.OfType<T>());
         }
 
         public int AddStay(Stay stay)
         {
             if (stay == null || stays.Exists(s => s.Id == stay.Id))
-            {   
+            {
                 return 0;
             }
 

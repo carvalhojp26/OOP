@@ -14,17 +14,17 @@ namespace project.Controllers
 
         public int Add(Admin admin)
         {
-            return _managementSystem.AddPerson(admin);
+            return _managementSystem.AddUser(admin);
         }
 
         public int Remove(int id)
         {
-            return _managementSystem.RemovePerson(id);
+            return _managementSystem.RemoveUser(id);
         }
 
         public void DisplayAll()
         {
-            var admins = _managementSystem.GetPeople().OfType<Admin>();
+            var admins = _managementSystem.GetUsers().OfType<Admin>();
             foreach (var admin in admins)
             {
                 Console.WriteLine($"Admin: {admin.Name}, Email: {admin.Email}");
