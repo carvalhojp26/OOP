@@ -1,6 +1,6 @@
 namespace ModelsLibrary
 {
-    public class Client : Person
+    public class Client : User
     {
         private string phoneNumber;
 

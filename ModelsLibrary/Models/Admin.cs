@@ -1,6 +1,6 @@
 namespace ModelsLibrary
 {
-    public class Admin : Person
+    public class Admin : User
     {
         private string password;
 

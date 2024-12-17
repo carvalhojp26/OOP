@@ -18,3 +18,11 @@
 /home/vac/jpfaculdade/OOP/project/obj/Debug/net8.0/project.pdb
 /home/vac/jpfaculdade/OOP/project/obj/Debug/net8.0/project.genruntimeconfig.cache
 /home/vac/jpfaculdade/OOP/project/obj/Debug/net8.0/ref/project.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/BCrypt.Net-Next.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/DnsClient.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/MongoDB.Bson.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/MongoDB.Driver.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/SharpCompress.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/Snappier.dll
+/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/ZstdSharp.dll

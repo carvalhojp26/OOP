@@ -1,24 +1,37 @@
-﻿using project.Controllers;
-using ManagementSystemLibrary;
-using ModelsLibrary;
+﻿using System;
+using System.Linq; // Required for ToList()
+using project.Services;
+using MongoDB.Driver;
 
 class Program
 {
     static void Main(string[] args)
     {
-        var management = new ManagementSystem();
+        try
+        {
+            string databaseName = "hotelmanagement";
+            string connectionString = "mongodb://localhost:27017";
 
-        var clientController = new ClientController(management);
-        var adminController = new AdminController(management);
+            MongoDBService mongoService = new MongoDBService(databaseName, connectionString);
 
-        clientController.Add(new Client(1, "John Doe", "john@example.com", "123456789"));
-        adminController.Add(new Admin(2, "Jane Admin", "jane@example.com", "987654321"));
+            var collections = mongoService.GetDatabase().ListCollectionNames().ToList();
 
-        clientController.DisplayAll();
-        adminController.DisplayAll();
-
-        clientController.Remove(1);
-        clientController.DisplayAll();
-        adminController.DisplayAll();
+            if (collections.Any())
+            {
+                Console.WriteLine("Connected to MongoDB! Collections found:");
+                foreach (var collection in collections)
+                {
+                    Console.WriteLine($" - {collection}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Connected to MongoDB, but no collections were found.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to connect to MongoDB: {ex.Message}");
+        }
     }
 }
