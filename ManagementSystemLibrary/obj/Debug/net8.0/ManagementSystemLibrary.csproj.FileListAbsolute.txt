@@ -1,3 +1,4 @@
+/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.csproj.AssemblyReference.cache
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.GeneratedMSBuildEditorConfig.editorconfig
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.AssemblyInfoInputs.cache
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.AssemblyInfo.cs
@@ -7,7 +8,6 @@
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/bin/Debug/net8.0/ManagementSystemLibrary.pdb
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/bin/Debug/net8.0/ModelsLibrary.dll
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/bin/Debug/net8.0/ModelsLibrary.pdb
-/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.csproj.AssemblyReference.cache
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.csproj.CopyComplete
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/ManagementSystemLibrary.dll
 /home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/Debug/net8.0/refint/ManagementSystemLibrary.dll

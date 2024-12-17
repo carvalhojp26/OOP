@@ -17,7 +17,7 @@ namespace project.Controllers
             return _managementSystem.AddUser(client);
         }   
 
-        public int Remove(int id)
+        public int Remove(string id)
         {
             return _managementSystem.RemoveUser(id);
         }

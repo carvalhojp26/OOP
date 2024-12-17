@@ -1,24 +1,32 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace ModelsLibrary
 {
+    [BsonKnownTypes(typeof(Admin), typeof(Client))]
     public abstract class User : IUser
     {
-        private int id;
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        private string id;
+
         private string name;
         private string email;
-        private string hashedPassword;
+        private string password;
+        private string role;
 
-        public int Id
+        public string Id
         {
             get => id;
             set
             {
-                if (value > 0)
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     id = value;
                 }
                 else
                 {
-                    throw new ArgumentException("ID must be greater than 0");
+                    throw new ArgumentException("ID must be valid.");
                 }
             }
         }
@@ -32,7 +40,6 @@ namespace ModelsLibrary
                 {
                     name = value;
                 }
-
             }
         }
 
@@ -41,39 +48,47 @@ namespace ModelsLibrary
             get => email;
             set
             {
-                if (value.Contains("@")) // fix this
+                if (value.Contains("@"))
                 {
                     email = value;
                 }
             }
         }
 
-        public string HashedPassword
+        public string Password
         {
-            get => hashedPassword;
+            get => password;
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    hashedPassword = value;
+                    password = value;
                 }
             }
         }
 
-        public User(int id, string name, string email)
+        public string Role
         {
-            this.id = id;
-            this.name = name;
-            this.email = email;
-            this.hashedPassword = hashedPassword;
+            get => role;
+            private set => role = value;
         }
 
-        // abstract method
+        public User() {}
+
+        public User(string name, string email, string password, string role)
+        {
+            this.id = string.Empty; // MongoDB will handle _id assignment
+            this.name = name ?? throw new ArgumentNullException(nameof(name));
+            this.email = email ?? throw new ArgumentNullException(nameof(email));
+            this.password = password ?? throw new ArgumentNullException(nameof(password));
+            this.role = role ?? throw new ArgumentNullException(nameof(role));
+        }
+
         public abstract void DisplayRole();
 
         public override string ToString()
         {
-            return $"ID: {Id}, Name: {Name}, Email: {Email}";
+            return $"ID: {Id}, Name: {Name}, Email: {Email}, Role: {Role}";
         }
     }
 }

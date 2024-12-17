@@ -1,30 +1,15 @@
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace ModelsLibrary
 {
+    [BsonDiscriminator("Client")]
     public class Client : User
     {
-        private string phoneNumber;
-
-        public string PhoneNumber
-        {
-            get => phoneNumber;
-            set
-            {
-                if (value.Length == 9)
-                {
-                    phoneNumber = value;
-                }
-
-            }
-        }
-
-        public Client(int id, string name, string email, string phoneNumber) : base(id, name, email)
-        {
-            this.phoneNumber = phoneNumber;
-        }
+        public Client(string name, string email, string password) : base(name, email, password, "Client") {}
 
         public override void DisplayRole()
         {
-            Console.WriteLine("Role: Client");
+            Console.WriteLine($"Role: Client");
         }
     }
 }

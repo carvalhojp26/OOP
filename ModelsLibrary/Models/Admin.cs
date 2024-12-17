@@ -1,23 +1,15 @@
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace ModelsLibrary
 {
+    [BsonDiscriminator("Admin")]
     public class Admin : User
     {
-        private string password;
-
-        public string Password
-        {
-            get => password;
-            set => password = value;
-        }
-
-        public Admin(int id, string name, string email, string password) : base(id, name, email)
-        {
-            this.password = password;
-        }
+        public Admin(string name, string email, string password) : base(name, email, password, "Admin") {}
 
         public override void DisplayRole()
         {
-            Console.WriteLine("Role: Admin");
+            Console.WriteLine($"Role: Admin");
         }
     }
 }

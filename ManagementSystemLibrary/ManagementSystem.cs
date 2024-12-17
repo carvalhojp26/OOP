@@ -21,7 +21,7 @@ namespace ManagementSystemLibrary
             return 1;
         }
 
-        public int RemoveUser(int id)
+        public int RemoveUser(string id)
         {
             var userToRemove = users.Find(user => user.Id == id);
 
@@ -39,7 +39,7 @@ namespace ManagementSystemLibrary
             return new List<User>(users);
         }
 
-        public User GetUserById(int id)
+        public User GetUserById(string id)
         {
             return users.Find(user => user.Id == id);
         }

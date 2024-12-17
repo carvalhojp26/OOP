@@ -1,6 +1,6 @@
 public interface IController<T>
 {
     int Add(T item);
-    int Remove(int id);
+    int Remove(string id);
     void DisplayAll();
 }
