@@ -1,15 +1,20 @@
 using System;
 using project.Services;
+using project.Controllers;
 
 namespace project.Views
 {
     public class MenuView
     {
         private MongoDBService _mongoDBService;
+        private readonly LoginController _loginController;
+        private readonly CreateAccountController _createAccountController;
 
         public MenuView(MongoDBService mongoDBService)
         {
             _mongoDBService = mongoDBService;
+            _loginController = new LoginController(mongoDBService, this);
+            _createAccountController = new CreateAccountController(mongoDBService, this);
         }
 
         public void ShowMenu()
@@ -25,13 +30,12 @@ namespace project.Views
             switch(choice)
             {
                 case "1":
-                    var createAccountView = new CreateAccountView(_mongoDBService, this);
-                    createAccountView.CreateAccount();
+                    var createAccountView = new CreateAccountView(_createAccountController);
+                    createAccountView.DisplayCreateAccountView();
                     break;
 
                 case "2":
-                    var loginView = new LoginView(_mongoDBService, this);
-                    loginView.Login();
+                    _loginController.Login();
                     break;
 
                 case "3":

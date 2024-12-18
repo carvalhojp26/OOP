@@ -1,21 +1,18 @@
 using System;
-using project.Services;
-using ModelsLibrary;
+using project.Controllers;
 
 namespace project.Views
 {
     public class CreateAccountView
     {
-        private MongoDBService _mongoDBService;
-        private MenuView _menuView;
+        private CreateAccountController _createAccountController;
 
-        public CreateAccountView(MongoDBService mongoDBService, MenuView menuView)
+        public CreateAccountView(CreateAccountController createAccountController)
         {
-            _mongoDBService = mongoDBService;
-            _menuView = menuView;
+            _createAccountController = createAccountController;
         }
 
-        public void CreateAccount()
+        public void DisplayCreateAccountView()
         {
             Console.Clear();
             Console.WriteLine("Create New Account");
@@ -29,23 +26,7 @@ namespace project.Views
             Console.Write("Enter your password: ");
             string password = Console.ReadLine();
 
-            var user = new Client(name, email, password);
-
-            int response = _mongoDBService.AddUser(user);
-
-            if (response == 0)
-            {
-                Console.WriteLine("Email already registered.");
-                Console.WriteLine("Press any key to return to the menu...");
-                Console.ReadKey();
-                _menuView.ShowMenu();
-                return;
-            }
-
-            Console.WriteLine("Account created successfully!");
-            Console.WriteLine("Press any key to return to the menu...");
-            Console.ReadKey();
-            _menuView.ShowMenu();
+            _createAccountController.CreateAccount(name, email, password);
         }
     }
 }
