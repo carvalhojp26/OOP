@@ -5,7 +5,7 @@ namespace project.Services
 {
     public class MongoDBService
     {
-        private readonly IMongoDatabase _database; // Interface provided by MongoDB.Driver && private fields named with _ prefix
+        private readonly IMongoDatabase _database;
 
         public MongoDBService(string databaseName, string connectionString)
         {
@@ -104,8 +104,30 @@ namespace project.Services
 
         public bool DeleteBooking(string bookingId)
         {
-            var result = GetCollection<Booking>("bookings").DeleteOne(booking => booking.Id == bookingId);
+            var result = GetCollection<Booking>("bookings")
+                .DeleteOne(booking => booking.Id == bookingId);
             return result.DeletedCount > 0;
+        }
+
+        public bool AddStay(Stay newStay)
+        {
+            var existingStay = GetCollection<Stay>("stays")
+                .Find(s => s.Id == newStay.Id)
+                .FirstOrDefault();
+
+            if (existingStay != null)
+            {
+                return false;
+            }
+
+            GetCollection<Stay>("stays").InsertOne(newStay);
+            return true;
+        }
+
+        public List<User> GetUsers()
+        {
+            var collection = _database.GetCollection<User>("users");
+            return collection.Find(_ => true).ToList();
         }
     }
 }

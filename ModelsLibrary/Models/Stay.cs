@@ -55,9 +55,9 @@ namespace ModelsLibrary
             }
         }
 
-        public Stay(string id, string name, int pricePerNight, int maxOccupancy)
+        public Stay(string name, int pricePerNight, int maxOccupancy)
         {
-            this.id = id;
+            this.id = ObjectId.GenerateNewId().ToString();
             this.name = name;
             this.pricePerNight = pricePerNight;
             this.maxOccupancy = maxOccupancy;
@@ -65,7 +65,7 @@ namespace ModelsLibrary
 
         public override string ToString()
         {
-            return $"Stay ID: {Id}, Name: {Name}, Price per Night: {PricePerNight}, Max Occupancy: {MaxOccupancy}";
+            return $"Name: {Name}, Price per Night: {PricePerNight}, Max Occupancy: {MaxOccupancy}";
         }
     }
 }

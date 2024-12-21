@@ -3,7 +3,7 @@ using project.Views;
 
 namespace project.Controllers
 {
-    public class LoginController
+    public class LoginController : ILoginController
     {
         private MongoDBService _mongoDBService;
         private MenuView _menuView;
@@ -34,7 +34,9 @@ namespace project.Controllers
                 {
                     if (user.Role == "Admin")
                     {
-                        var adminMenuView = new AdminMenuView();
+                        var stayController = new StayController(_mongoDBService);
+                        var userController = new UserController(_mongoDBService); // Create UserController
+                        var adminMenuView = new AdminMenuView(stayController, userController); // Pass both controllers
                         adminMenuView.DisplayAdminMenuView();
                     }
                     else if (user.Role == "Client")

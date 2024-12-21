@@ -1,13 +1,18 @@
 using System;
+using project.Controllers;
 using project.Services;
 
 namespace project.Views
 {
     public class AdminMenuView
     {
-        public AdminMenuView()
+        private readonly StayController _stayController;
+        private readonly UserController _userController;
+
+        public AdminMenuView(StayController stayController, UserController userController)
         {
-            // Constructor logic (if needed) can go here
+            _stayController = stayController;
+            _userController = userController;
         }
 
         public void DisplayAdminMenuView()
@@ -19,7 +24,7 @@ namespace project.Views
                 Console.WriteLine("1. Users");
                 Console.WriteLine("2. Stays");
                 Console.WriteLine("3. Add new stay");
-                Console.WriteLine("4. Logout");
+                Console.WriteLine("4. Logout    ");
                 Console.Write("Enter your choice: ");
 
                 string choice = Console.ReadLine();
@@ -27,18 +32,15 @@ namespace project.Views
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("Displaying users...");
-                        // Call method to display bookings
+                        _userController.ListUsers();
                         break;
 
                     case "2":
-                        Console.WriteLine("Displaying stays...");
-                        // Call method to make a booking
+                        _stayController.ListStays();
                         break;
 
                     case "3":
-                        Console.WriteLine("Adding new stay...");
-                        // Call method to cancel a booking
+                        _stayController.AddStay();
                         break;
 
                     case "4":

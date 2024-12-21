@@ -41,7 +41,6 @@ namespace project.Views
 
                     case "3":
                         _bookingController.DeleteBooking(_loggedInUserId);
-                        // Call method to cancel a booking
                         break;
 
                     case "4":

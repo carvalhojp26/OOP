@@ -5,7 +5,7 @@ using project.Views;
 
 namespace project.Controllers
 {
-    public class BookingController
+    public class BookingController : IBookingController
     {
         private MongoDBService _mongoDBService;
 

@@ -5,7 +5,7 @@ using project.Views;
 
 namespace project.Controllers
 {
-    public class CreateAccountController
+    public class CreateAccountController : ICreateAccountController
     {
         private MongoDBService _mongoDBService;
         private MenuView _menuView;

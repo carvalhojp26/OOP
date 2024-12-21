@@ -51,7 +51,6 @@ namespace ModelsLibrary
             set => leaveDate = value;
         }
 
-        // Constructor
         public Booking(
             string userId,
             string stayId,
@@ -60,7 +59,7 @@ namespace ModelsLibrary
             DateTime leaveDate
         )
         {
-            id = ObjectId.GenerateNewId().ToString(); // Automatically generate ID
+            id = ObjectId.GenerateNewId().ToString();
             this.userId = userId;
             this.stayId = stayId;
             this.stay = stay;
