@@ -1,56 +1,82 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace ModelsLibrary
 {
     public class Booking
     {
-        private int id;
-        private Client client;
-        private Stay stay;
-        private DateTime checkIn;
-        private DateTime checkOut;
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        private string id;
 
-        public int Id
+        private string userId;
+        private string stayId;
+        private string stay;
+        private DateTime arrivalDate;
+        private DateTime leaveDate;
+
+        public string Id
         {
             get => id;
             set => id = value;
         }
 
-        public Client Client
+        public string UserId
         {
-            get => client;
-            set => client = value;
+            get => userId;
+            set => userId = value;
         }
 
-        public Stay Stay
+        public string StayId
+        {
+            get => stayId;
+            set => stayId = value;
+        }
+
+        public string Stay
         {
             get => stay;
             set => stay = value;
         }
 
-        public DateTime CheckIn
+        public DateTime ArrivalDate
         {
-            get => checkIn;
-            set => checkIn = value;
+            get => arrivalDate;
+            set => arrivalDate = value;
         }
 
-        public DateTime Checkout
+        public DateTime LeaveDate
         {
-            get => checkOut;
-            set => checkOut = value;
+            get => leaveDate;
+            set => leaveDate = value;
         }
 
-        public Booking (int id, Client client, Stay stay, DateTime checkIn, DateTime checkOut)
+        // Constructor
+        public Booking(
+            string userId,
+            string stayId,
+            string stay,
+            DateTime arrivalDate,
+            DateTime leaveDate
+        )
         {
-            this.id = id;
-            this.client = client;
+            id = ObjectId.GenerateNewId().ToString(); // Automatically generate ID
+            this.userId = userId;
+            this.stayId = stayId;
             this.stay = stay;
-            this.checkIn = checkIn;
-            this.checkOut = checkOut;
+            this.arrivalDate = arrivalDate;
+            this.leaveDate = leaveDate;
         }
 
-        public int CalculateTotalPrice()
+        public int CalculateTotalNights()
         {
-            TimeSpan duration = checkOut - checkIn;
-            return duration.Days * stay.Price;
+            TimeSpan duration = leaveDate - arrivalDate;
+            return duration.Days;
+        }
+
+        public override string ToString()
+        {
+            return $"Booking ID: {id}, Stay: {stay}, Arrival: {arrivalDate.ToShortDateString()}, Leave: {leaveDate.ToShortDateString()}";
         }
     }
 }

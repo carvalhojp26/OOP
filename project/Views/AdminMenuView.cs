@@ -1,29 +1,24 @@
 using System;
-using project.Controllers;
 using project.Services;
 
 namespace project.Views
 {
-    public class ClientMenuView
+    public class AdminMenuView
     {
-        private BookingController _bookingController;
-        private string _loggedInUserId;
-
-        public ClientMenuView(BookingController bookingController, string userId)
+        public AdminMenuView()
         {
-            _bookingController = bookingController;
-            _loggedInUserId = userId;
+            // Constructor logic (if needed) can go here
         }
 
-        public void DisplayClientMenuView()
+        public void DisplayAdminMenuView()
         {
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Client Menu:");
-                Console.WriteLine("1. My bookings");
-                Console.WriteLine("2. Make a booking");
-                Console.WriteLine("3. Cancel a booking");
+                Console.WriteLine("Admin Menu:");
+                Console.WriteLine("1. Users");
+                Console.WriteLine("2. Stays");
+                Console.WriteLine("3. Add new stay");
                 Console.WriteLine("4. Logout");
                 Console.Write("Enter your choice: ");
 
@@ -32,15 +27,17 @@ namespace project.Views
                 switch (choice)
                 {
                     case "1":
-                        _bookingController.ListBookings(_loggedInUserId);
+                        Console.WriteLine("Displaying users...");
+                        // Call method to display bookings
                         break;
 
                     case "2":
-                        _bookingController.CreateBooking(_loggedInUserId);
+                        Console.WriteLine("Displaying stays...");
+                        // Call method to make a booking
                         break;
 
                     case "3":
-                        _bookingController.DeleteBooking(_loggedInUserId);
+                        Console.WriteLine("Adding new stay...");
                         // Call method to cancel a booking
                         break;
 

@@ -73,11 +73,11 @@ namespace ModelsLibrary
             private set => role = value;
         }
 
-        public User() {}
+        public User() { }
 
         public User(string name, string email, string password, string role)
         {
-            this.id = string.Empty; // MongoDB will handle _id assignment
+            this.id = string.Empty;
             this.name = name ?? throw new ArgumentNullException(nameof(name));
             this.email = email ?? throw new ArgumentNullException(nameof(email));
             this.password = password ?? throw new ArgumentNullException(nameof(password));

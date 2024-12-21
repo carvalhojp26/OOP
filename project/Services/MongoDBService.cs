@@ -1,5 +1,5 @@
-using MongoDB.Driver;
 using ModelsLibrary;
+using MongoDB.Driver;
 
 namespace project.Services
 {
@@ -25,7 +25,9 @@ namespace project.Services
 
         public int AddUser(User user)
         {
-            var existingUser = GetCollection<User>("users").Find(u => u.Email == user.Email).FirstOrDefault();
+            var existingUser = GetCollection<User>("users")
+                .Find(u => u.Email == user.Email)
+                .FirstOrDefault();
 
             if (existingUser != null)
             {
@@ -49,11 +51,61 @@ namespace project.Services
             if (user.Password == password)
             {
                 return true;
-            } 
+            }
             else
             {
                 return false;
             }
+        }
+
+        public User FindUser(string email)
+        {
+            return GetCollection<User>("users").Find(u => u.Email == email).FirstOrDefault();
+        }
+
+        public List<Stay> GetStays()
+        {
+            var collection = _database.GetCollection<Stay>("stays");
+            return collection.Find(_ => true).ToList();
+        }
+
+        public List<Booking> GetBookingsByUserId(string userId)
+        {
+            var collection = _database.GetCollection<Booking>("bookings");
+            return collection.Find(booking => booking.UserId == userId).ToList();
+        }
+
+        public bool HasOverlappingBooking(string stayId, DateTime arrivalDate, DateTime leaveDate)
+        {
+            var bookingCollection = GetCollection<Booking>("bookings");
+
+            var conflictingBookings = bookingCollection
+                .Find(existingBooking =>
+                    existingBooking.StayId == stayId
+                    && (
+                        (
+                            arrivalDate >= existingBooking.ArrivalDate
+                            && arrivalDate < existingBooking.LeaveDate
+                        )
+                        || (
+                            leaveDate > existingBooking.ArrivalDate
+                            && leaveDate <= existingBooking.LeaveDate
+                        )
+                        || (
+                            arrivalDate <= existingBooking.ArrivalDate
+                            && leaveDate >= existingBooking.LeaveDate
+                        )
+                    )
+                )
+                .ToList();
+
+            return conflictingBookings.Count > 0;
+        }
+
+        public bool DeleteBooking(string bookingId)
+        {
+            var result = GetCollection<Booking>("bookings").DeleteOne(booking => booking.Id == bookingId);
+            return result.DeletedCount > 0;
         }
     }
 }

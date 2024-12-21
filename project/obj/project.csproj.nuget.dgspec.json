@@ -4,63 +4,6 @@
     "/home/vac/jpfaculdade/OOP/project/project.csproj": {}
   },
   "projects": {
-    "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj",
-        "projectName": "ManagementSystemLibrary",
-        "projectPath": "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj",
-        "packagesPath": "/home/vac/.nuget/packages/",
-        "outputPath": "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/vac/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj": {
-                "projectPath": "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -142,9 +85,6 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj": {
-                "projectPath": "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj"
-              },
               "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj": {
                 "projectPath": "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj"
               }

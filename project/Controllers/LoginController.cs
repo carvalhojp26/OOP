@@ -16,7 +16,7 @@ namespace project.Controllers
 
         public void Login()
         {
-            var loginView = new LoginView(this); // understand this
+            var loginView = new LoginView(this);
             loginView.DisplayLoginView();
         }
 
@@ -27,7 +27,35 @@ namespace project.Controllers
             if (success)
             {
                 Console.WriteLine("Login successful!");
-                // Proceed to the next step after successful login
+
+                var user = _mongoDBService.FindUser(email);
+
+                if (user != null)
+                {
+                    if (user.Role == "Admin")
+                    {
+                        var adminMenuView = new AdminMenuView();
+                        adminMenuView.DisplayAdminMenuView();
+                    }
+                    else if (user.Role == "Client")
+                    {
+                        var clientMenuView = new ClientMenuView(
+                            new BookingController(_mongoDBService),
+                            user.Id
+                        );
+                        clientMenuView.DisplayClientMenuView();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unknown role. Redirecting to the main menu...");
+                        _menuView.ShowMenu();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("User not found after successful login. Returning to menu.");
+                    _menuView.ShowMenu();
+                }
             }
             else
             {

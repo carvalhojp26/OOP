@@ -1,6 +1,6 @@
-using project.Services;
 using System;
 using ModelsLibrary;
+using project.Services;
 using project.Views;
 
 namespace project.Controllers
@@ -21,7 +21,8 @@ namespace project.Controllers
             var user = new Client(name, email, password);
             int response = _mongoDBService.AddUser(user);
 
-            if (response == 0) {
+            if (response == 0)
+            {
                 Console.WriteLine("Email already registered.");
                 Console.WriteLine("Press any key to return to the menu...");
                 Console.ReadKey();

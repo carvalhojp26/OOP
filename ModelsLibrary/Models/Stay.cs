@@ -1,63 +1,71 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace ModelsLibrary
 {
     public class Stay
     {
-        private int id;
-        private string type; // Flat, House
-        private string adress;
-        private int capacity; // Number of guests
-        private int price; // Price per night
-        private bool status; // Available (true), Unavailable (false)
-        
-        public int Id
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        private string id;
+
+        private string name;
+        private int pricePerNight;
+        private int maxOccupancy;
+
+        public string Id
         {
             get => id;
             set => id = value;
         }
 
-        public string Type
+        public string Name
         {
-            get => type;
-            set => type = value;
+            get => name;
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    name = value;
+                }
+            }
         }
 
-        public string Adress
+        public int PricePerNight
         {
-            get => adress;
-            set => adress = value;
+            get => pricePerNight;
+            set
+            {
+                if (value >= 0)
+                {
+                    pricePerNight = value;
+                }
+            }
         }
 
-        public int Capacity
+        public int MaxOccupancy
         {
-            get => capacity;
-            set => capacity = value;
+            get => maxOccupancy;
+            set
+            {
+                if (value > 0)
+                {
+                    maxOccupancy = value;
+                }
+            }
         }
 
-        public int Price
-        {
-            get => price;
-            set => price = value;
-        }
-
-        public bool Status
-        {
-            get => status;
-            set => status = value;
-        }
-
-        public Stay (int id, string type, string adress, int capacity, int price, bool status)
+        public Stay(string id, string name, int pricePerNight, int maxOccupancy)
         {
             this.id = id;
-            this.type = type;
-            this.adress = adress;
-            this.capacity = capacity;
-            this.price = price;
-            this.status = status;
+            this.name = name;
+            this.pricePerNight = pricePerNight;
+            this.maxOccupancy = maxOccupancy;
         }
 
-        public void ChangeStatus()
+        public override string ToString()
         {
-            status = !status;
+            return $"Stay ID: {Id}, Name: {Name}, Price per Night: {PricePerNight}, Max Occupancy: {MaxOccupancy}";
         }
     }
 }

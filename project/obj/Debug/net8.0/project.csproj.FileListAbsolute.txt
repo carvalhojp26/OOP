@@ -16,9 +16,7 @@
 /home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/SharpCompress.dll
 /home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/Snappier.dll
 /home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/ZstdSharp.dll
-/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/ManagementSystemLibrary.dll
 /home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/ModelsLibrary.dll
-/home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/ManagementSystemLibrary.pdb
 /home/vac/jpfaculdade/OOP/project/bin/Debug/net8.0/ModelsLibrary.pdb
 /home/vac/jpfaculdade/OOP/project/obj/Debug/net8.0/project.csproj.CopyComplete
 /home/vac/jpfaculdade/OOP/project/obj/Debug/net8.0/project.dll

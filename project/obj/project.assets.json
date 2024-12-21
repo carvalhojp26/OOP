@@ -223,19 +223,6 @@
           "lib/net7.0/ZstdSharp.dll": {}
         }
       },
-      "ManagementSystemLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "ModelsLibrary": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ManagementSystemLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ManagementSystemLibrary.dll": {}
-        }
-      },
       "ModelsLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -662,11 +649,6 @@
         "zstdsharp.port.nuspec"
       ]
     },
-    "ManagementSystemLibrary/1.0.0": {
-      "type": "project",
-      "path": "../ManagementSystemLibrary/ManagementSystemLibrary.csproj",
-      "msbuildProject": "../ManagementSystemLibrary/ManagementSystemLibrary.csproj"
-    },
     "ModelsLibrary/1.0.0": {
       "type": "project",
       "path": "../ModelsLibrary/ModelsLibrary.csproj",
@@ -676,7 +658,6 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "BCrypt.Net-Next >= 4.0.3",
-      "ManagementSystemLibrary >= 1.0.0",
       "ModelsLibrary >= 1.0.0",
       "MongoDB.Driver >= 3.1.0"
     ]
@@ -706,9 +687,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj": {
-              "projectPath": "/home/vac/jpfaculdade/OOP/ManagementSystemLibrary/ManagementSystemLibrary.csproj"
-            },
             "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj": {
               "projectPath": "/home/vac/jpfaculdade/OOP/ModelsLibrary/ModelsLibrary.csproj"
             }

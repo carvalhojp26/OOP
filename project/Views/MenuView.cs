@@ -1,6 +1,6 @@
 using System;
-using project.Services;
 using project.Controllers;
+using project.Services;
 
 namespace project.Views
 {
@@ -27,7 +27,7 @@ namespace project.Views
             Console.WriteLine("Enter your choice: ");
             string choice = Console.ReadLine();
 
-            switch(choice)
+            switch (choice)
             {
                 case "1":
                     var createAccountView = new CreateAccountView(_createAccountController);
